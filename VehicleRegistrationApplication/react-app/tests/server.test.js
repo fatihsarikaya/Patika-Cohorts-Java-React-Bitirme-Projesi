@@ -1,6 +1,8 @@
 const request = require('supertest');
 const app = require('../server'); // Sunucu uygulamanızın ana dosyasının yoluyla değiştirin
 const db = require('../db'); // Veritabanı bağlantısını yöneten dosyanın yoluyla değiştirin
+const mysql = require('mysql2');
+
 
 describe('Server Tests', () => {
   beforeAll(async () => {
