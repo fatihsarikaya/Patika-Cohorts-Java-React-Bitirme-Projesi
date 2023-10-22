@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "react-router-dom": "^6.17.0"
+  },
+  "devDependencies": {
+    "babel-core": "^7.0.0-bridge.0"
   }
 }
