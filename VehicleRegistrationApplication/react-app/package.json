@@ -43,6 +43,7 @@
   "devDependencies": {
     "@babel/preset-flow": "^7.22.15",
     "babel-plugin-styled-components": "^2.1.4",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "supertest": "^6.3.3"
   }
 }
