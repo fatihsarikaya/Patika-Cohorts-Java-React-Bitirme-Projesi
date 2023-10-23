@@ -31,3 +31,7 @@ const disconnect = () => {
 };
 
 module.exports = { connection, disconnect };
+
+export async function connect() {
+    // Implement your connection logic here
+}
