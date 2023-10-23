@@ -16,11 +16,17 @@ function Cars() {
                 return response.json();
             })
             .then((data) => {
-                setCars(data);
+                // Gelen verinin bir dizi olduğundan emin olun
+                if (Array.isArray(data)) {
+                    setCars(data);
+                } else {
+                    throw new Error('Data is not an array');
+                }
                 setLoading(false);
             })
             .catch((error) => {
                 console.error(error);
+                setError(error);
                 setLoading(false);
             });
     }, []);
