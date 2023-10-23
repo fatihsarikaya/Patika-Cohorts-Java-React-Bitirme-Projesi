@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 function Cars() {
+    // Verileri saklamak için bir state kullanın
     const [cars, setCars] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    // MySQL verilerini çekmek için ağ isteği yapın
     useEffect(() => {
         fetch('/api/cars')
             .then((response) => {
@@ -18,7 +20,7 @@ function Cars() {
                 setLoading(false);
             })
             .catch((error) => {
-                setError(error);
+                console.error(error);
                 setLoading(false);
             });
     }, []);
@@ -33,7 +35,7 @@ function Cars() {
 
     return (
         <div>
-            <h2>My Cars</h2>
+            <h2>Car List</h2>
             <ul>
                 {cars.map((car) => (
                     <li key={car.id}>
