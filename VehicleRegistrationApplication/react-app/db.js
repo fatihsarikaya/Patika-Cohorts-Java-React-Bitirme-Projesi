@@ -33,5 +33,26 @@ const disconnect = () => {
 module.exports = { connection, disconnect };
 
 export async function connect() {
-    // Implement your connection logic here
+    const dbConfig = {
+        host: 'localhost', // Your database host
+        user: 'admin', // Your database username
+        password: '1234', // Your database password
+        database: 'vehicle_registration', // Your database name
+    };
+
+    const connection = mysql.createConnection(dbConfig);
+
+    // Establish the database connection
+    connection.connect((err) => {
+        if (err) {
+            console.error('Database connection failed:', err);
+            throw err; // You may want to handle the error more gracefully in your application
+        } else {
+            console.log('Database connected successfully');
+        }
+    });
+
+    // Return the database connection for use in your application
+    return connection;
 }
+
