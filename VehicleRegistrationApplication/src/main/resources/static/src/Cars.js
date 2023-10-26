@@ -6,7 +6,7 @@ function Cars() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('/api/cars')
+        fetch('/api/cars') // Sunucu adresini kullanın // fetch('http://localhost:8080/api/cars')
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -18,6 +18,7 @@ function Cars() {
                 setLoading(false);
             })
             .catch((error) => {
+                console.error(error);
                 setError(error);
                 setLoading(false);
             });
@@ -33,7 +34,7 @@ function Cars() {
 
     return (
         <div>
-            <h2>My Cars</h2>
+            <h2>Car List</h2>
             <ul>
                 {cars.map((car) => (
                     <li key={car.id}>

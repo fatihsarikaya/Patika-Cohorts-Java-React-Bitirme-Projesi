@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ReactController {
     @GetMapping("/")
     public String index() {
-        return "forward:/static/index.html"; // React uygulamanızın index.html dosyasını gösterir
+        return "forward:/index.html"; // React uygulamanızın index.html dosyasını gösterir
     }
 }

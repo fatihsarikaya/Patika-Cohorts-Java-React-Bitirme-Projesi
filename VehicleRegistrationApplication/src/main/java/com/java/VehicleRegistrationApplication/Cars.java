@@ -1,17 +1,20 @@
 package com.java.VehicleRegistrationApplication;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Car {
+public class Cars {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String plate;
     private String brand;
     private String model;
 
-    public Car() {
+    public Cars() {
     }
 
     public void setId(Long id) {

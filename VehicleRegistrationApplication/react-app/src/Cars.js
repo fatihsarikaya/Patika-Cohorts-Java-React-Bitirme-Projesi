@@ -16,6 +16,7 @@ function Cars() {
                 return response.json();
             })
             .then((data) => {
+                // setCars(data);
                 // Gelen verinin bir dizi olduğundan emin olun
                 if (Array.isArray(data)) {
                     setCars(data);
