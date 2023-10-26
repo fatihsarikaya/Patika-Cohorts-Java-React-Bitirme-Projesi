@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
 function Cars() {
+    // Verileri saklamak için bir state kullanın
     const [cars, setCars] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    // MySQL verilerini çekmek için ağ isteği yapın
     useEffect(() => {
-        fetch('/api/cars') // Sunucu adresini kullanın // fetch('http://localhost:8080/api/cars')
+        fetch('/api/cars')
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -14,7 +16,13 @@ function Cars() {
                 return response.json();
             })
             .then((data) => {
-                setCars(data);
+                // setCars(data);
+                // Gelen verinin bir dizi olduğundan emin olun
+                if (Array.isArray(data)) {
+                    setCars(data);
+                } else {
+                    throw new Error('Data is not an array');
+                }
                 setLoading(false);
             })
             .catch((error) => {
@@ -36,9 +44,9 @@ function Cars() {
         <div>
             <h2>Car List</h2>
             <ul>
-                {cars.map((car) => (
-                    <li key={car.id}>
-                        <strong>Plate:</strong> {car.plate}, <strong>Brand:</strong> {car.brand}, <strong>Model:</strong> {car.model}
+                {cars.map((cars) => (
+                    <li key={cars.id}>
+                        <strong>Plate:</strong> {cars.plate}, <strong>Brand:</strong> {cars.brand}, <strong>Model:</strong> {cars.model}
                     </li>
                 ))}
             </ul>

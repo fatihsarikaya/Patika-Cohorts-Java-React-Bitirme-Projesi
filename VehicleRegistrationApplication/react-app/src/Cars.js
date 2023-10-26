@@ -44,9 +44,9 @@ function Cars() {
         <div>
             <h2>Car List</h2>
             <ul>
-                {cars.map((car) => (
-                    <li key={car.id}>
-                        <strong>Plate:</strong> {car.plate}, <strong>Brand:</strong> {car.brand}, <strong>Model:</strong> {car.model}
+                {cars.map((cars) => (
+                    <li key={cars.id}>
+                        <strong>Plate:</strong> {cars.plate}, <strong>Brand:</strong> {cars.brand}, <strong>Model:</strong> {cars.model}
                     </li>
                 ))}
             </ul>
