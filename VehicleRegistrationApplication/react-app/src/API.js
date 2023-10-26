@@ -1,7 +1,8 @@
 // Örnek API (Express kullanılarak)
 const express = require('express');
 const app = express();
-const sequelize = require('sequelize'); // Sequelize ORM'ini kullanırken //const { Sequelize, DataTypes } = require("sequelize");
+const sequelize = require('sequelize');
+const {Sequelize} = require("sequelize"); // Sequelize ORM'ini kullanırken //const { Sequelize, DataTypes } = require("sequelize");
 
 // Sequelize ile MySQL veritabanı bağlantısı
 const db = new Sequelize('vehicle_registration', 'admin', '1234', {
