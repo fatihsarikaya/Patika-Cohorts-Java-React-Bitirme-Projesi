@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 31 Eki 2023, 21:22:28
+-- Üretim Zamanı: 05 Kas 2023, 17:35:34
 -- Sunucu sürümü: 10.4.28-MariaDB
 -- PHP Sürümü: 8.2.4
 
@@ -45,21 +45,23 @@ INSERT INTO `cars` (`id`, `plate`, `brand`, `model`, `user_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tablo için tablo yapısı `users`
+-- Tablo için tablo yapısı `user`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `user` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `username` varchar(50) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Tablo döküm verisi `users`
+-- Tablo döküm verisi `user`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'fatih', '1234');
+INSERT INTO `user` (`id`, `username`, `email`, `password`) VALUES
+(1, 'fatih', '', '1234'),
+(2, 'fatihsarikaya', 'fatihsarikaya4@hotmail.com', 'Y5Je2*66up.c8Dy');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -73,9 +75,9 @@ ALTER TABLE `cars`
   ADD UNIQUE KEY `plate` (`plate`);
 
 --
--- Tablo için indeksler `users`
+-- Tablo için indeksler `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
@@ -87,13 +89,13 @@ ALTER TABLE `users`
 -- Tablo için AUTO_INCREMENT değeri `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Tablo için AUTO_INCREMENT değeri `users`
+-- Tablo için AUTO_INCREMENT değeri `user`
 --
-ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `user`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
