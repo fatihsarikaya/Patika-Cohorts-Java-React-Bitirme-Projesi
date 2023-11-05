@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class SignUp extends Component {
     constructor(props) {
@@ -22,10 +23,23 @@ class SignUp extends Component {
 
         // Bu noktada sunucuya kayıt işlemini yapabilirsiniz.
         // Örnek: fetch veya axios kullanarak bir POST isteği gönderme
-
+        /*
         console.log('Username:', username);
         console.log('E-mail:', email);
         console.log('Password:', password);
+        */
+        // Kullanıcı verilerini sunucuya gönder
+        axios.post('/signup', {
+            username: username,
+            email: email,
+            password: password
+        })
+            .then(response => {
+                console.log('Sunucu cevabı:', response.data);
+            })
+            .catch(error => {
+                console.error('Sunucu hatası:', error);
+            });
     }
 
     render() {
