@@ -22,6 +22,19 @@ app.get('/api/cars', (req, res) => {
 
 // Daha fazla API rotası eklemek için aynı şekilde devam edebilirsiniz
 
+app.post('/signin', (req, res) => {
+    const { email, password } = req.body;
+
+    // Simulated sign-in logic (replace with your actual authentication logic)
+    const user = users.find((u) => u.email === email && u.password === password);
+
+    if (user) {
+        res.json({ success: true, message: 'Sign-in successful' });
+    } else {
+        res.status(401).json({ success: false, message: 'Sign-in failed' });
+    }
+});
+
 // Sunucuyu dinlemeye başla
 app.listen(port, () => {
     console.log(`Sunucu ${port} portunda çalışıyor.`);
